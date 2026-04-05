@@ -9,6 +9,6 @@ describe 'Landing page', type: :integration do
     request '/'
     expect(response).to have_selector(
                           type: Gopher::Types::INFO,
-                          text: /Welcome to \*\*Gopherpedia\*\*/)
+                          text: /Welcome to Gopherpedia/)
   end
 end

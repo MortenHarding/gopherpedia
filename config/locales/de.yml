@@ -2,15 +2,16 @@
 de:
   name: German
   index:
-    pick_a_language: Pick a language
-    welcome: "Welcome to **Gopherpedia**, the gopher interface to Wikipedia. This is a direct interface to wikipedia, you can search and read articles via the search form below. Enjoy!"
-    more_about: "more about gopherpedia"
-    search_header: "Search gopherpedia:"
-    search_input: 'Search Gopherpedia'
-    featured_content: "Featured Content"
-    recent_pages: "Recent pages"
+    welcome: "Die Gopher-Oberfläche für Wikipedia."
+    pick_a_language: Sprache/Language
+    more_about: "mehr über gopherpedia"
+    search_header: "gopherpedia durchsuchen:"
+    search_input: "Gopherpedia durchsuchen"
+    featured_content: "Ausgewählte Inhalte"
+    recent_pages: "Letzte Seiten"
+    options: "Sprache & info"
   error:
-    heading: "Looks like something went wrong with that request"
-  powered_by: "Powered by Gopher 2000, a Muffinlabs Production"
-  back_to: "back to gopherpedia"
+    heading: "Es sieht so aus, als wäre bei dieser Anfrage etwas schiefgelaufen"
+  powered_by: "Bereitgestellt von Gopher 2000, eine Produktion von Muffinlabs"
+  back_to: "Zurück zu gopherpedia"
   date: '%B %e, %Y'

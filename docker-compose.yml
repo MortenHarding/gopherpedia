@@ -29,28 +29,6 @@ services:
     networks:
       - internal_network
       - external_network
-  web:
-    image: muffinista/gopher-proxy
-    container_name: "webproxy"
-    restart: on-failure
-    depends_on:
-      - db
-      - gopher
-    environment:
-      docker: "true"
-      production: "true"
-      ALLOW_ALL_PORTS: "false"
-      RESTRICT_TO_MATCH: "/gopherpedia.gopherspace.dk/"
-      START_REQUEST: "gopherpedia.gopherspace.dk"
-      APP_NAME: "Gopherpedia"
-      GOPHER_TITLE: "Gopherpedia"
-      GOPHER_ABOUT_URL: "/about"
-      GOPHER_DESCRIPTION: "Gopherpedia, the gopher interface to Wikipedia."
-    ports:
-      - "8080:80"
-    networks:
-      - internal_network
-      - external_network
 networks:
   external_network:
   internal_network:

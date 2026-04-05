@@ -78,20 +78,9 @@ end
 menu :index do |pagelist, featured, locale|
   locale ||= I18n.default_locale
   prefix = (locale == I18n.default_locale) ? "" : "lang=#{locale}"
-  figlet "gopherpedia!"
+  figlet "Gopherpedia"
   br
-
-  if I18n.available_locales.count > 1
-    block I18n.t('index.pick_a_language')
-    I18n.available_locales.each do |locale|
-      menu I18n.t(:name, locale:), "/lang=#{locale}", 'gopherpedia.gopherspace.dk'
-    end
-  end
-  
   block I18n.t('index.welcome')
-
-  br
-  menu I18n.t('index.more_about'), "/about", 'gopherpedia.gopherspace.dk'
 
   # use br(x) to add x space between lines
   br(2)
@@ -112,8 +101,17 @@ menu :index do |pagelist, featured, locale|
   end
   br
 
-  br(5)
-  text I18n.t('.powered_by')
+  header I18n.t('index.options')
+    if I18n.available_locales.count > 1
+    block I18n.t('index.pick_a_language')
+    I18n.available_locales.each do |locale|
+      menu I18n.t(:name, locale:), "/lang=#{locale}", 'gopherpedia.gopherspace.dk'
+    end
+  end
+
+  br
+  menu I18n.t('index.more_about'), "/about", 'gopherpedia.gopherspace.dk'
+
 end
 
 route '/about' do
@@ -121,16 +119,13 @@ route '/about' do
 end
 
 menu :about do
-  figlet "Gopher!"
+  figlet "Gopher"
   br
 
   block "In 1991, the Gopher protocol was born -- a method of searching for and distributing information on the Internet. Gopher was intended to be easy to implement and use, and for a little while, it was very popular."
   br
 
   block "Of course, HTTP and the World Wide Web launched right around that time, and it wasn't long before the Web was proven to be a better platform. Gopher has survived to this day, but the WWW reigns supreme."
-  br
-
-  block "Despite its lack of popularity, Gopher is still an awesome protocol - it's extremely hackable and fun to work on. People like to put random stuff on their gopher servers -- their blog, articles they write, etc. I decided that I wanted to write an interface to the single greatest source of information on the Internet -- Wikipedia."
   br
 
   block "So, I built Gopherpedia. It runs on Gopher2000 (https://github.com/muffinista/gopher2000), a Ruby library I wrote for developing Gopher services. The web proxy to Gopherpedia is GoPHPer (https://github.com/muffinista/gophper-proxy), which I also wrote."

@@ -2,13 +2,14 @@
 en:
   name: English
   index:
-    pick_a_language: Pick a language
-    welcome: "Welcome to **Gopherpedia**, the gopher interface to Wikipedia. This is a direct interface to wikipedia, you can search and read articles via the search form below. Enjoy!"
+    welcome: "The gopher interface to Wikipedia."
+    pick_a_language: Language/Sprache
     more_about: "more about gopherpedia"
     search_header: "Search gopherpedia:"
     search_input: 'Search Gopherpedia'
     featured_content: "Featured Content"
     recent_pages: "Recent pages"
+    options: "Language & info"
   error:
     heading: "Looks like something went wrong with that request"
   powered_by: "Powered by Gopher 2000, a Muffinlabs Production"
