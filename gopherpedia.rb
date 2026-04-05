@@ -84,31 +84,31 @@ menu :index do |pagelist, featured, locale|
   if I18n.available_locales.count > 1
     block I18n.t('index.pick_a_language')
     I18n.available_locales.each do |locale|
-      menu I18n.t(:name, locale:), "/lang=#{locale}", 'gopherpedia.com'
+      menu I18n.t(:name, locale:), "/lang=#{locale}", 'gopherpedia.gopherspace.dk'
     end
   end
   
   block I18n.t('index.welcome')
 
   br
-  menu I18n.t('index.more_about'), "/about", 'gopherpedia.com'
+  menu I18n.t('index.more_about'), "/about", 'gopherpedia.gopherspace.dk'
 
   # use br(x) to add x space between lines
   br(2)
 
   # ask for some input
   text I18n.t('index.search_header')
-  input I18n.t('index.search_input'), "#{prefix}/lookup", 'gopherpedia.com'
+  input I18n.t('index.search_input'), "#{prefix}/lookup", 'gopherpedia.gopherspace.dk'
 
   header I18n.t('index.featured_content')
   featured.reverse.each do |f|
-    text_link "#{f[:date].strftime(I18n.t('.date'))}: #{f[:title]}", "#{prefix}/#{f[:title]}", 'gopherpedia.com'
+    text_link "#{f[:date].strftime(I18n.t('.date'))}: #{f[:title]}", "#{prefix}/#{f[:title]}", 'gopherpedia.gopherspace.dk'
   end
   br(2)
 
   header I18n.t('index.recent_pages')
   pagelist.each do |p|
-    text_link p, "/#{prefix}/#{p}", 'gopherpedia.com'
+    text_link p, "/#{prefix}/#{p}", 'gopherpedia.gopherspace.dk'
   end
   br
 
@@ -136,13 +136,13 @@ menu :about do
   block "So, I built Gopherpedia. It runs on Gopher2000 (https://github.com/muffinista/gopher2000), a Ruby library I wrote for developing Gopher services. The web proxy to Gopherpedia is GoPHPer (https://github.com/muffinista/gophper-proxy), which I also wrote."
   br
 
-  text_link "more about the Gopher protocol", "Gopher (protocol)", 'gopherpedia.com'
+  text_link "more about the Gopher protocol", "Gopher (protocol)", 'gopherpedia.gopherspace.dk'
 
-  http "gopher2000 - a ruby gopher server", "http://github.com/muffinista/gopher2000", 'gopherpedia.com'
-  http "gophper-proxy - a modern PHP gopher proxy", "http://github.com/muffinista/gophper-proxy", 'gopherpedia.com'
+  http "gopher2000 - a ruby gopher server", "http://github.com/muffinista/gopher2000", 'gopherpedia.gopherspace.dk'
+  http "gophper-proxy - a modern PHP gopher proxy", "http://github.com/muffinista/gophper-proxy", 'gopherpedia.gopherspace.dk'
 
   br
-  menu "back to gopherpedia", "/", 'gopherpedia.com'
+  menu "back to gopherpedia", "/", 'gopherpedia.gopherspace.dk'
 end
 
 
@@ -220,7 +220,7 @@ menu :search do |key, total, results, locale|
   text "** RESULTS FOR #{key} **"
   br
   results.each do |x|
-    text_link x, "#{prefix}/#{x}", 'gopherpedia.com'
+    text_link x, "#{prefix}/#{x}", 'gopherpedia.gopherspace.dk'
   end
   br
   text "** Powered by Gopher 2000 **"
@@ -237,7 +237,7 @@ menu :error do |code|
   error "Error #{code.to_s}"
   br
   br
-  menu I18n.t('.back_to'), "/", 'gopherpedia.com'
+  menu I18n.t('.back_to'), "/", 'gopherpedia.gopherspace.dk'
 end
 
 text :article do |title, article|
