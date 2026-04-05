@@ -1,6 +1,7 @@
 services:
   db:
     image: library/mariadb
+    container_name: "mariadb"
     volumes:
       - ./scripts/stats.sql:/docker-entrypoint-initdb.d/dump.sql
     restart: on-failure
@@ -11,13 +12,13 @@ services:
   gopher:
     build: .
     command: bin/wait-for-it db:3306 -- bundle exec gopher2000 gopherpedia.rb
+    container_name: "gopherpedia"
     restart: on-failure
     environment:
       GOPHER_PORT: 70
       GOPHERPEDIA_DB_URI: 'mysql2://root:@db/gopherpedia'
     ports:
-      #- "70:7070"
-      - "70:70"
+      - "76:70"
     depends_on:
       - db
     tty: true
@@ -30,6 +31,7 @@ services:
       - external_network
   web:
     image: muffinista/gopher-proxy
+    container_name: "webproxy"
     restart: on-failure
     depends_on:
       - db
@@ -38,8 +40,8 @@ services:
       docker: "true"
       production: "true"
       ALLOW_ALL_PORTS: "false"
-      RESTRICT_TO_MATCH: "/gopherpedia.com/"
-      START_REQUEST: "gopherpedia.com"
+      RESTRICT_TO_MATCH: "/gopherpedia.gopherspace.dk/"
+      START_REQUEST: "gopherpedia.gopherspace.dk"
       APP_NAME: "Gopherpedia"
       GOPHER_TITLE: "Gopherpedia"
       GOPHER_ABOUT_URL: "/about"
