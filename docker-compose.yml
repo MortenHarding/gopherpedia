@@ -15,10 +15,10 @@ services:
     container_name: "gopherpedia"
     restart: on-failure
     environment:
-      GOPHER_PORT: 70
+      GOPHER_PORT: 76
       GOPHERPEDIA_DB_URI: 'mysql2://root:@db/gopherpedia'
     ports:
-      - "76:70"
+      - "76:76"
     depends_on:
       - db
     tty: true
