@@ -90,7 +90,7 @@ menu :index do |pagelist, featured, locale|
   input I18n.t('index.search_input'), "#{prefix}/lookup", 'gopherpedia.gopherspace.dk'
 
   width(32)
-  header(I18n.t('index.featured_content'),style='-')
+  header(I18n.t('index.featured_content'),style='_')
   width(67)
   featured.reverse.each do |f|
     text_link "#{f[:date].strftime(I18n.t('.date'))}: #{f[:title]}", "#{prefix}/#{f[:title]}", 'gopherpedia.gopherspace.dk'
@@ -98,7 +98,7 @@ menu :index do |pagelist, featured, locale|
   br(2)
 
   width(32)
-  header(I18n.t('index.recent_pages'),style='-')
+  header(I18n.t('index.recent_pages'),style='_')
   width(67)
   pagelist.each do |p|
     text_link p, "/#{prefix}/#{p}", 'gopherpedia.gopherspace.dk'
@@ -106,7 +106,7 @@ menu :index do |pagelist, featured, locale|
   br
 
   width(32)
-  header(I18n.t('index.options'),style='-')
+  header(I18n.t('index.options'),style='_')
   width(67)
     if I18n.available_locales.count > 1
     block I18n.t('index.pick_a_language')
@@ -245,18 +245,18 @@ text :article do |title, article|
   br
 
   width(30)
-  big_header(title,style='-')
+  big_header(title,style='_')
   width(67)
   article.sections.reject { |k, v|
     v.output.length == 0 || v.output.gsub("*", "").strip.length == 0
   }.each do |k, section|
     if section.level < 2
       width(30)
-      header(section.title,style='-')
+      header(section.title,style='_')
       width(67)
     else
       width(30)
-      small_header(section.title,style='-')
+      small_header(section.title,style='_')
       width(67)
     end
     block section.output
@@ -264,7 +264,7 @@ text :article do |title, article|
   end
 
   width(30)
-  small_header("License",style='-')
+  small_header("License",style='_')
   text "All content on Gopherpedia comes from Wikipedia, and is licensed under CC-BY-SA"
   text "License URL: http://creativecommons.org/licenses/by-sa/3.0/"
   text "Original Article: http://en.wikipedia.org/wiki/#{title.gsub(/ /, '_')}"
