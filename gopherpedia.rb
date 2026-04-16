@@ -78,7 +78,7 @@ end
 menu :index do |pagelist, featured, locale|
   locale ||= I18n.default_locale
   prefix = (locale == I18n.default_locale) ? "" : "lang=#{locale}"
-  figlet "Gopherpedia"
+  figlet -f straight "Gopherpedia"
   br
   block I18n.t('index.welcome')
 
@@ -119,7 +119,7 @@ route '/about' do
 end
 
 menu :about do
-  figlet "Gopher"
+  figlet -f straight "Gopher"
   br
 
   block "In 1991, the Gopher protocol was born -- a method of searching for and distributing information on the Internet. Gopher was intended to be easy to implement and use, and for a little while, it was very popular."
@@ -223,7 +223,7 @@ end
 
 
 menu :error do |code|
-  figlet "Ooops!"
+  figlet -f straight "Ooops!"
   br
 
   text I18n.t('error.heading')
