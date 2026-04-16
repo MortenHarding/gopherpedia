@@ -244,18 +244,18 @@ end
 text :article do |title, article|
   br
 
-  width(32)
+  width(30)
   big_header(title,style='-')
   width(67)
   article.sections.reject { |k, v|
     v.output.length == 0 || v.output.gsub("*", "").strip.length == 0
   }.each do |k, section|
     if section.level < 2
-      width(32)
+      width(30)
       header(section.title,style='-')
       width(67)
     else
-      width(32)
+      width(30)
       small_header(section.title,style='-')
       width(67)
     end
@@ -263,7 +263,7 @@ text :article do |title, article|
     br(2)
   end
 
-  width(32)
+  width(30)
   small_header("License",style='-')
   text "All content on Gopherpedia comes from Wikipedia, and is licensed under CC-BY-SA"
   text "License URL: http://creativecommons.org/licenses/by-sa/3.0/"
