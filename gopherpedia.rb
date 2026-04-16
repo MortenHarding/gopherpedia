@@ -89,19 +89,25 @@ menu :index do |pagelist, featured, locale|
   text I18n.t('index.search_header')
   input I18n.t('index.search_input'), "#{prefix}/lookup", 'gopherpedia.gopherspace.dk'
 
-  header I18n.t('index.featured_content')
+  width(32)
+  header(I18n.t('index.featured_content'),style='-')
+  width(67)
   featured.reverse.each do |f|
     text_link "#{f[:date].strftime(I18n.t('.date'))}: #{f[:title]}", "#{prefix}/#{f[:title]}", 'gopherpedia.gopherspace.dk'
   end
   br(2)
 
-  header I18n.t('index.recent_pages')
+  width(32)
+  header(I18n.t('index.recent_pages'),style='-')
+  width(67)
   pagelist.each do |p|
     text_link p, "/#{prefix}/#{p}", 'gopherpedia.gopherspace.dk'
   end
   br
 
-  header I18n.t('index.options')
+  width(32)
+  header(I18n.t('index.options'),style='-')
+  width(67)
     if I18n.available_locales.count > 1
     block I18n.t('index.pick_a_language')
     I18n.available_locales.each do |locale|
@@ -212,13 +218,13 @@ menu :search do |key, total, results, locale|
   prefix = (locale == I18n.default_locale) ? "" : "lang=#{locale}"
   
   br
-  text "** RESULTS FOR #{key} **"
+  text "RESULTS FOR #{key}"
   br
   results.each do |x|
     text_link x, "#{prefix}/#{x}", 'gopherpedia.gopherspace.dk'
   end
   br
-  text "** Powered by Gopher 2000 **"
+  text "Powered by Gopher 2000"
 end
 
 
@@ -238,21 +244,27 @@ end
 text :article do |title, article|
   br
 
-  big_header title
-
+  width(32)
+  big_header(title,style='-')
+  width(67)
   article.sections.reject { |k, v|
     v.output.length == 0 || v.output.gsub("*", "").strip.length == 0
   }.each do |k, section|
     if section.level < 2
-      header section.title
+      width(32)
+      header(section.title,style='-')
+      width(67)
     else
-      small_header section.title
+      width(32)
+      small_header(section.title,style='-')
+      width(67)
     end
     block section.output
     br(2)
   end
 
-  small_header "License"
+  width(32)
+  small_header("License",style='-')
   text "All content on Gopherpedia comes from Wikipedia, and is licensed under CC-BY-SA"
   text "License URL: http://creativecommons.org/licenses/by-sa/3.0/"
   text "Original Article: http://en.wikipedia.org/wiki/#{title.gsub(/ /, '_')}"
