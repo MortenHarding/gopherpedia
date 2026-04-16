@@ -2,7 +2,7 @@
 de:
   name: German
   index:
-    welcome: "Die Gopher-Oberfläche für Wikipedia."
+    welcome: "Gopher-Oberfläche für Wikipedia"
     pick_a_language: Sprache/Language
     more_about: "mehr über gopherpedia"
     search_header: "gopherpedia durchsuchen:"

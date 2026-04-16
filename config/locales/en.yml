@@ -2,7 +2,7 @@
 en:
   name: English
   index:
-    welcome: "The gopher interface to Wikipedia."
+    welcome: "Gopher interface to Wikipedia"
     pick_a_language: Language/Sprache
     more_about: "more about gopherpedia"
     search_header: "Search gopherpedia:"
